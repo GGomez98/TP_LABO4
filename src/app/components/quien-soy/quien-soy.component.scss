@@ -1,0 +1,19 @@
+#user-image{
+    border-radius: 50%;
+    width: 300px;
+}
+
+#user{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 100px;
+    background-color: rgb(93, 93, 93);
+    color: white;
+}
+
+#info{
+    width: 1500px;
+}

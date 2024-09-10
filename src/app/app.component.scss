@@ -1,0 +1,21 @@
+a{
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.26);
+    height: 60px;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+}
+
+li{
+    width: 5%;
+}
