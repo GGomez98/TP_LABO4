@@ -1,0 +1,14 @@
+<div class="login-container container-fluid">
+    <h2>Registrarse</h2>
+    <form action="register.php" method="POST">
+        <input type="text" name="mail" placeholder="Email" required [(ngModel)]="newUserMail">
+        <input type="password" name="password" placeholder="Contraseña" required [(ngModel)]="newUserPWD">
+        <input type="submit" value="Registrarse" (click)="Register()">
+        @if (loggedUser != ""){
+            <h2 class="text-center text-primary">Usuario registrado: {{loggedUser}}</h2>
+        }
+        @if(flagError){
+            <p class="text-center text-primary">{{msjError}}</p>
+        }
+    </form>
+</div>

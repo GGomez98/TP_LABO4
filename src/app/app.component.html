@@ -1,7 +1,14 @@
 <nav>
-  <ul>
-    <li><a href="/login">Login</a></li>
-    <li><a href="/quien-soy">Quien soy?</a></li>
-  </ul>
+  @if(isLoggedOut()){
+    <ul>
+      <li><button routerLink="login">Login</button></li>
+      <li><button routerLink="quien-soy">Quien soy?</button></li>
+    </ul>
+  }
+  @else{
+    <ul>
+      <li><button routerLink="login">Log out</button></li>
+    </ul>
+  }
 </nav>
 <router-outlet />

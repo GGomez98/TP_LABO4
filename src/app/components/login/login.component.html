@@ -1,10 +1,10 @@
 <div class="login-container container-fluid">
     <h2>Iniciar Sesión</h2>
     <form action="login.php" method="POST">
-        <input type="text" name="username" placeholder="Nombre de usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <input type="submit" value="Iniciar Sesión">
+        <input type="text" name="username" placeholder="Nombre de usuario" required [(ngModel)]="userMail">
+        <input type="password" name="password" placeholder="Contraseña" required [(ngModel)]="userPWD">
+        <input type="submit" value="Iniciar Sesión" (click)="Login()">
     </form>
     <a href="#">¿Olvidaste tu contraseña?</a>
-    <a href="#">¿No tenes usuario? Registrate</a>
+    <a href="/registro">¿No tenes usuario? Registrate</a>
 </div>
