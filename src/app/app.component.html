@@ -6,7 +6,8 @@
     </ul>
   }
   @else{
-    <ul>
+    <ul id="loggedin">
+      <li id="user"><p>Bienvenido {{auth.currentUser?.displayName}}</p></li>
       <li><button routerLink="login">Log out</button></li>
     </ul>
   }

@@ -1,8 +1,16 @@
-button{
+button, p{
     background-color: transparent;
     text-decoration: none;
     color: white;
     border: none;
+    height: 100%;
+}
+
+#user{
+    width: fit-content;
+    padding: 30px;
+    display: flex;
+    align-content: center;
 }
 
 nav{
@@ -19,4 +27,12 @@ ul{
 
 li{
     width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#loggedin{
+    display: flex;
+    justify-content: flex-end;
 }
