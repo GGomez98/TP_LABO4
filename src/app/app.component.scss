@@ -4,18 +4,30 @@ button, p{
     color: white;
     border: none;
     height: 100%;
+    width: 200px;
+}
+
+button:hover{
+    background-color: rgba(160, 143, 143, 0.26);
 }
 
 #user{
     width: fit-content;
-    padding: 30px;
     display: flex;
+}
+
+#user p{
+    margin-bottom: 0;
+    text-align: center;
+    height: 100%;
     align-content: center;
 }
 
 nav{
     background-color: rgba(0, 0, 0, 0.26);
     height: 60px;
+    width: 100vw;
+    display: flex;
 }
 
 ul{
@@ -23,10 +35,11 @@ ul{
     list-style: none;
     height: 100%;
     align-items: center;
+    width: 100%;
+    justify-content: flex-start;
 }
 
 li{
-    width: 5%;
     height: 100%;
     display: flex;
     align-items: center;

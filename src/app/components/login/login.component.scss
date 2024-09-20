@@ -73,4 +73,17 @@ body {
 .userbutton{
     width: 30%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.userbutton img{
+    width: 80%;
+}
+
+.userbutton img:hover{
+    width: 100%;
 }

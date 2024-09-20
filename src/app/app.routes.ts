@@ -10,5 +10,9 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'home', component: HomeComponent, canActivate: [authGuard]},
     {path: 'quien-soy', component: QuienSoyComponent},
-    {path: 'registro', component: RegistroComponent}
+    {path: 'registro', component: RegistroComponent},
+    {path:'juegos',
+        loadChildren:() => import('./modulos/juegos/juegos.module').then(m=>m.JuegosModule),
+        canActivate: [authGuard]
+    }
 ];

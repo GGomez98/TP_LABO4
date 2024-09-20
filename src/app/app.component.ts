@@ -4,6 +4,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { RegistroComponent } from './components/registro/registro.component';
 import { Auth } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent {
   }
 
   goTo(path: string) {
+    console.log(path);
     this.router.navigate([path]);
   }
 
@@ -30,8 +32,22 @@ export class AppComponent {
   }
 
   logout() {
-    console.log('Logout successful');
-    this.goTo('/login');
+    Swal.fire({
+      title: "¿Esta seguro que desea cerrar la sesión?",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cerrar Sesión",
+      cancelButtonText: "Cancelar",
+      background: '#000',
+      color: '#fff', // Evita que se cierre al hacer clic fuera
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.showLoading();
+        console.log('Logout successful');
+        this.goTo('/login');
+      }
+    });
   }
 
   obtenerFechaActual = () => {

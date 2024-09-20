@@ -18,6 +18,8 @@ export class LoginComponent {
   userMail: string = "";
   userPWD: string = "";
   loggedUser: string = "";
+  flagError: boolean = false;
+  msjError: string = "";
 
   constructor(public auth: Auth, private router: Router, private firestore: Firestore) {
   }
@@ -36,7 +38,18 @@ export class LoginComponent {
   };
 
   Login() {
+    Swal.fire({
+      title: 'Cargando...',
+      text: 'Por favor espera',
+      allowOutsideClick: false,
+      background: '#000',
+      color: '#fff', // Evita que se cierre al hacer clic fuera
+      didOpen: () => {
+        Swal.showLoading(); // Muestra la animación de carga
+      }
+    });
     signInWithEmailAndPassword(this.auth, this.userMail, this.userPWD).then((res) => {
+      Swal.close();
       if (res.user.email !== null) 
         this.loggedUser = res.user.email;
         let col = collection(this.firestore, "logins");
@@ -48,9 +61,39 @@ export class LoginComponent {
         confirmButtonColor: '#ff5722'
         })
       this.router.navigate(['home']);
-    }).catch((e) => 
-      console.log(e)
-    )
+      this.flagError = false;
+    }).catch((e) => {
+      Swal.close();
+      this.flagError = true;
+
+      console.log(e.code);
+      switch (e.code) {
+        case "auth/invalid-email":
+          if(this.userMail==''){
+            this.msjError = 'Por favor ingrese un mail'
+          }
+          else{
+            this.msjError = 'El mail ingresado es invalido'
+          }
+          break;
+        case "auth/invalid-credential":
+          this.msjError = "Contraseña incorrecta";
+          break;
+        case "auth/missing-password":
+          this.msjError = "Falta ingresar la contraseña";
+          break;
+        default:
+          this.msjError = "Ocurrio un error inesperado"
+          break;
+      }
+
+      Swal.fire({
+        title: `${this.msjError}`,
+        background: '#000',
+        color: '#fff',
+        confirmButtonColor: '#ff5722'
+        })
+    });
   }
 
   CompletarInputs(mail:string,pass:string) {
