@@ -8,6 +8,7 @@ import { PreguntasComponent } from './componentes/preguntas/preguntas.component'
 import { BuscaminasComponent } from './componentes/buscaminas/buscaminas.component';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RouterLink } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    JuegosRoutingModule
+    JuegosRoutingModule,
+    FormsModule
   ]
 })
 export class JuegosModule { }

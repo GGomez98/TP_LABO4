@@ -1,3 +1,43 @@
 p{
     color: white;
 }
+
+.alphabet-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90vw;
+}
+
+.letter{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-size: 30px;
+}
+
+.letter:hover{
+    background-color: rgba(91, 91, 91, 0.8);
+}
+
+#palabra{
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+    letter-spacing: 10px;
+}
+
+#vida{
+    width: 40px;
+}
+
+#barra-vidas{
+    padding: 20px;
+}

@@ -12,7 +12,6 @@ export const routes: Routes = [
     {path: 'quien-soy', component: QuienSoyComponent},
     {path: 'registro', component: RegistroComponent},
     {path:'juegos',
-        loadChildren:() => import('./modulos/juegos/juegos.module').then(m=>m.JuegosModule),
-        canActivate: [authGuard]
+        loadChildren:() => import('./modulos/juegos/juegos.module').then(m=>m.JuegosModule)//,canActivate: [authGuard]
     }
 ];

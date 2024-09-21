@@ -1,2 +1,34 @@
-<p>ahorcado works!</p>
 <app-juego></app-juego>
+<div id="barra-vidas">
+    <img *ngFor="let vida of vidas" src="https://firebasestorage.googleapis.com/v0/b/tp-labo4-fae81.appspot.com/o/corazon.png?alt=media&token=821aefc2-08ca-4af0-8947-67d7ff5d6c8e" alt="vida" id="vida">
+</div>
+<p id="palabra">{{palabraOculta}}</p>
+<div class="alphabet-buttons container-fluid">
+    <button id="A" class="letter" (click) = "BuscarLetra('A')">A</button>
+    <button id="B" class="letter" (click) = "BuscarLetra('B')">B</button>
+    <button id="C" class="letter" (click) = "BuscarLetra('C')">C</button>
+    <button id="D" class="letter" (click) = "BuscarLetra('D')">D</button>
+    <button id="E" class="letter" (click) = "BuscarLetra('E')">E</button>
+    <button id="F" class="letter" (click) = "BuscarLetra('F')">F</button>
+    <button id="G" class="letter" (click) = "BuscarLetra('G')">G</button>
+    <button id="H" class="letter" (click) = "BuscarLetra('H')">H</button>
+    <button id="I" class="letter" (click) = "BuscarLetra('I')">I</button>
+    <button id="J" class="letter" (click) = "BuscarLetra('J')">J</button>
+    <button id="K" class="letter" (click) = "BuscarLetra('K')">K</button>
+    <button id="L" class="letter" (click) = "BuscarLetra('L')">L</button>
+    <button id="M" class="letter" (click) = "BuscarLetra('M')">M</button>
+    <button id="N" class="letter" (click) = "BuscarLetra('N')">N</button>
+    <button id="O" class="letter" (click) = "BuscarLetra('O')">O</button>
+    <button id="P" class="letter" (click) = "BuscarLetra('P')">P</button>
+    <button id="Q" class="letter" (click) = "BuscarLetra('Q')">Q</button>
+    <button id="R" class="letter" (click) = "BuscarLetra('R')">R</button>
+    <button id="S" class="letter" (click) = "BuscarLetra('S')">S</button>
+    <button id="T" class="letter" (click) = "BuscarLetra('T')">T</button>
+    <button id="U" class="letter" (click) = "BuscarLetra('U')">U</button>
+    <button id="V" class="letter" (click) = "BuscarLetra('V')">V</button>
+    <button id="W" class="letter" (click) = "BuscarLetra('W')">W</button>
+    <button id="X" class="letter" (click) = "BuscarLetra('X')">X</button>
+    <button id="Y" class="letter" (click) = "BuscarLetra('Y')">Y</button>
+    <button id="Z" class="letter" (click) = "BuscarLetra('Z')">Z</button>
+  </div>
+  

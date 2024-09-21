@@ -1,0 +1,22 @@
+#button{
+    width: 100vw;
+    display: flex;
+    justify-content: end;
+}
+
+button{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(203, 18, 18, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-size: 30px;
+}
+
+#close:hover{
+    background-color: rgba(198, 66, 66, 0.8);
+}
