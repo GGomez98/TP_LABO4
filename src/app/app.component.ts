@@ -11,6 +11,10 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, FormsModule, RegistroComponent],
   templateUrl: './app.component.html',
+  template: `
+    <app-juego (puntajeCambiado)="actualizarPuntaje($event)"></app-juego>
+    <app-componente-comun [puntaje]="puntajeTotal"></app-componente-comun>
+  `,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {

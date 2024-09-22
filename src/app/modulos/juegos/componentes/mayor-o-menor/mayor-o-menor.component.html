@@ -1,2 +1,9 @@
-<p>mayor-o-menor works!</p>
 <app-juego></app-juego>
+<div id="mesa" class="container_fluid" *ngIf="dataCargada">
+    <img src={{cartaEnMesaImagen}}>
+</div>
+<div id="opciones"class='container_fluid' *ngIf="dataCargada">
+    <button class="opcion" (click) = "Apostar('menor')">Menor</button>
+    <button class="opcion" (click) = "Apostar('igual')">Igual</button>
+    <button class="opcion" (click) = "Apostar('mayor')">Mayor</button>
+</div>

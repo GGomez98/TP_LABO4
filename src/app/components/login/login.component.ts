@@ -43,9 +43,9 @@ export class LoginComponent {
       text: 'Por favor espera',
       allowOutsideClick: false,
       background: '#000',
-      color: '#fff', // Evita que se cierre al hacer clic fuera
+      color: '#fff',
       didOpen: () => {
-        Swal.showLoading(); // Muestra la animación de carga
+        Swal.showLoading();
       }
     });
     signInWithEmailAndPassword(this.auth, this.userMail, this.userPWD).then((res) => {

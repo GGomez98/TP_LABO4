@@ -1,3 +1,27 @@
 p{
     color: white;
 }
+
+#mesa, #opciones{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.opcion{
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-size: 30px;
+}
+
+.opcion:hover{
+    background-color: rgba(91, 91, 91, 0.8);
+}
