@@ -1,0 +1,103 @@
+#chat{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-size: 30px;
+    width: 90vw;
+    height: 80vh;
+}
+
+#mensajes{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+}
+
+#input-mensaje{
+    width: 80%;
+}
+
+#enviar{
+    width: 20%;
+}
+
+.mensaje{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    font-size: 20px;
+    scroll-behavior: smooth;
+}
+
+.mensaje > *{
+    order: 1;
+}
+
+.mi-usuario{
+    justify-content: end;
+    .contenido-mensaje{
+        background-color: rgba(0, 0, 255, 0.339);
+        border-radius: 10px;
+        text-align: left;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 50%;
+    }
+}
+
+.otro-usuario{
+    justify-content: start;
+    .contenido-mensaje{
+        background-color: rgba(99, 220, 231, 0.342);
+        border-radius: 10px;
+        text-align: left;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 50%;
+    }
+}
+
+.datos-mensaje{
+    width: 100%;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fecha-mensaje{
+    min-width: 100px;
+    text-align: left;
+}
+
+#button{
+    width: 100vw;
+    display: flex;
+    justify-content: end;
+    height: 60px;
+}
+
+#close{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    margin-bottom: 0px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(203, 18, 18, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-size: 30px;
+}
+
+#close:hover{
+    background-color: rgba(198, 66, 66, 0.8);
+}

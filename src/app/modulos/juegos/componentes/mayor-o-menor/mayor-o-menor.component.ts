@@ -2,6 +2,8 @@ import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/cor
 import { CartasService } from '../../../../servicios/cartas.service';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
+import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-mayor-o-menor',
@@ -21,12 +23,14 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
   cartasDescartadas:any[] = [];
   puntaje = 0;
 
-  constructor(private cartasService: CartasService){}
+  constructor(private cartasService: CartasService,private firestore: Firestore, protected auth: Auth) {}
+  
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
   ngOnInit():void{
+    this.puntaje = 0;
     Swal.fire({
       title: 'Cargando...',
       text: 'Por favor espera',
@@ -129,11 +133,20 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
         }
 console.log(this.puntaje);
         if (this.cartasDescartadas.length == 51) {
+          let col = collection(this.firestore, "mayor-o-menor");
+          addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
           Swal.fire({
             title: `Juego Terminado`,
             background: '#000',
             color: '#fff',
-            confirmButtonColor: '#ff5722'
+            confirmButtonColor: '#ff5722',
+            confirmButtonText: 'Reiniciar Juego',
+            allowOutsideClick: false,
+            allowEscapeKey: false 
+          }).then((result)=>{
+            if(result.isConfirmed){
+              this.ngOnInit();
+            }
           });
         }
       }

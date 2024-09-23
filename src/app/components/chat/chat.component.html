@@ -1,0 +1,40 @@
+<div id="button">
+    <button id="close" [routerLink] = "['../home']">X</button>   
+</div>
+<div id="chat" class="container-fluid">
+    <div id="mensajes" #scrollDiv>
+        @if(mensajesCargados){
+            @for (message of mensajes; track message.descripcion) {
+                @if(message.user == auth.currentUser?.displayName){
+                    <div class="mensaje mi-usuario">
+                        <div class="contenido-mensaje">
+                            <div class="datos-mensaje">
+                                <p class="usuario-mensaje">{{message.user}}</p>
+                                <p class="fecha-mensaje">{{message.fecha}}</p>
+                            </div>
+                            <p>{{message.descripcion}}</p>
+                        </div>
+                    </div>
+                }
+                @else{
+                    <div class="mensaje otro-usuario">
+                        <div class="contenido-mensaje">
+                            <div class="datos-mensaje">
+                                <p class="usuario-mensaje">{{message.user}}</p>
+                                <p class="fecha-mensaje">{{message.fecha}}</p>
+                            </div>
+                            <p>{{message.descripcion}}</p>
+                        </div>
+                    </div>
+                }
+            }
+        }
+        @else {
+            <p>Cargando mensajes...</p>
+        }
+    </div>
+    <div id="div-input" #input hidden>
+        <input type="text" id="input-mensaje" placeholder="Escribe un mensaje" [(ngModel)]="mensaje">
+        <button id="enviar" (click) = 'enviarMensaje()'>Enviar</button>
+    </div>
+</div>
