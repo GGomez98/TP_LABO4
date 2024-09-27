@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { addDoc, collection, Firestore, getDocs} from '@angular/fire/firestore';
+import { addDoc, collection, Firestore, getDocs, onSnapshot} from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class ChatComponent {
   mensaje='';
   loggedUser: any;
   mensajes: any[] = [];
+  mensajesExistentes: any[] = [];
   mensajesCargados = false;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
   @ViewChild('input') input!: ElementRef;
@@ -28,9 +29,9 @@ export class ChatComponent {
 
   enviarMensaje(){
     if(this.mensaje!=''){
+      this.mensajesExistentes = this.mensajes;
       let col = collection(this.firestore, "mensajes");
-      addDoc(col,{fecha: new Date(), "user": this.auth.currentUser?.displayName, "descripcion": this.mensaje});
-      this.mensajes = [];
+      addDoc(col,{id: this.mensajesExistentes.length+1 ,fecha: new Date(), "user": this.auth.currentUser?.displayName, "descripcion": this.mensaje});
       this.obtenerMensajes()
       console.log(this.mensaje);
       this.mensaje = '';
@@ -41,20 +42,43 @@ export class ChatComponent {
   }
 
   async obtenerMensajes(){
-    const querySnapshot = await getDocs(collection(this.firestore, "mensajes"));
-    querySnapshot.forEach((doc) => {
-      this.mensajes.push(doc.data());
+    const query = collection(this.firestore, "mensajes");
+
+    onSnapshot(query, (querySnapshot) => {
+      this.mensajes = [];
+      
+      // Recorrer los documentos en el snapshot
+      querySnapshot.forEach((doc) => {
+        const mensaje = doc.data();
+        mensaje['fecha'] = mensaje['fecha'].toDate().toLocaleString(); // Formatear la fecha
+        this.mensajes.push(mensaje);
+      });
+  
+      // Ordenar los mensajes por fecha
+      this.mensajes = this.mensajes.sort((a, b) => a['id'] - b['id']);
+      
+      // Mostrar los mensajes en consola
+      console.log(this.mensajes);
+  
+      // Desocultar el input y hacer scroll al final
+      this.input.nativeElement.hidden = false;
+      this.scrollToBottom();
+      this.mensajesCargados = true;
     });
-    this.mensajes = this.mensajes.sort((a,b)=> a['fecha'] - b['fecha']);
-    this.mensajes.forEach(mensaje => {
-      const fecha = mensaje['fecha'].toDate();
-      const fechaFormateada = fecha.toLocaleString();
-      mensaje['fecha'] = fechaFormateada;
-    });
-    console.log(this.mensajes);
-    this.input.nativeElement.hidden = false;
-    this.scrollToBottom();
-    this.mensajesCargados = true
+    //const querySnapshot = await getDocs(collection(this.firestore, "mensajes"));
+    //querySnapshot.forEach((doc) => {
+    //  this.mensajes.push(doc.data());
+    //});
+    //this.mensajes = this.mensajes.sort((a,b)=> a['fecha'] - b['fecha']);
+    //this.mensajes.forEach(mensaje => {
+    //  const fecha = mensaje['fecha'].toDate();
+    //  const fechaFormateada = fecha.toLocaleString();
+    //  mensaje['fecha'] = fechaFormateada;
+    //});
+    //console.log(this.mensajes);
+    //this.input.nativeElement.hidden = false;
+    //this.scrollToBottom();
+    //this.mensajesCargados = true
   }
 
   scrollToBottom() {

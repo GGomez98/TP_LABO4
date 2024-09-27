@@ -22,6 +22,7 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
   cartaRecogida:any;
   cartasDescartadas:any[] = [];
   puntaje = 0;
+  cartasEnBaraja = 52;
 
   constructor(private cartasService: CartasService,private firestore: Firestore, protected auth: Auth) {}
   
@@ -148,6 +149,9 @@ console.log(this.puntaje);
               this.ngOnInit();
             }
           });
+        }
+        else{
+          this.cartasEnBaraja -= 1;
         }
       }
     );

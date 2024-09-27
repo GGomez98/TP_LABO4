@@ -32,7 +32,7 @@ export class AppComponent {
 
   isLoggedOut(): boolean {
     const currentRoute = this.router.url;
-    return currentRoute === '/login' || currentRoute === '/quien-soy' || currentRoute === '/registro'|| currentRoute === '/';
+    return currentRoute === '/login' || currentRoute === '/registro'|| currentRoute === '/';
   }
 
   logout() {

@@ -1,5 +1,8 @@
 <app-juego></app-juego>
-<p id="puntaje">Puntaje: {{puntaje}}</p>
+<div id="info">
+    <p id="puntaje">Puntaje: {{puntaje}}</p>
+    <p id="cartas">Cartas: {{cartasEnBaraja}}</p>
+</div>
 <div id="mesa" class="container_fluid" *ngIf="dataCargada">
     <img src={{cartaEnMesaImagen}}>
 </div>
