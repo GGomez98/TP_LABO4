@@ -1,2 +1,16 @@
-<p>preguntas works!</p>
 <app-juego></app-juego>
+<div id="info" *ngIf="dataCargada">
+    <p id="puntaje">Puntaje: {{puntaje}}</p>
+    <div id="barra-vidas">
+        <img *ngFor="let vida of vidas" src="https://firebasestorage.googleapis.com/v0/b/tp-labo4-fae81.appspot.com/o/corazon.png?alt=media&token=821aefc2-08ca-4af0-8947-67d7ff5d6c8e" alt="vida" id="vida">
+    </div>
+</div>
+<div id="pais-seleccionado" class="container_fluid" *ngIf="dataCargada">
+    <img id='bandera' src={{paisSeleccionado.bandera}}>
+    <p id="pregunta">¿De quien es esta bandera?</p>
+</div>
+<div id="opciones"class='container_fluid' *ngIf="dataCargada">
+    @for(opcion of opciones; track opcion.id){
+        <button id="{{opcion.id}}" class="opciones" (click) = "elegirOpcion(opcion.id)">{{opcion.nombre}}</button>
+    }
+</div>

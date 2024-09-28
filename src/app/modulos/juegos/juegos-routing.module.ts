@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 import { MayorOMenorComponent } from './componentes/mayor-o-menor/mayor-o-menor.component';
 import { PreguntasComponent } from './componentes/preguntas/preguntas.component';
-import { BuscaminasComponent } from './componentes/buscaminas/buscaminas.component';
+import { InvasoresComponent } from './componentes/invasores/invasores.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     component:PreguntasComponent
   },
   {
-    path:'buscaminas',
-    component:BuscaminasComponent
+    path:'invasores',
+    component:InvasoresComponent
   }
 ];
 

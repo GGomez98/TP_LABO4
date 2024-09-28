@@ -23,11 +23,52 @@ button:hover{
     align-content: center;
 }
 
-nav{
-    background-color: rgba(0, 0, 0, 0.75);
-    height: 60px;
+.navbar{
     width: 100vw;
     display: flex;
+    padding: 0;
+    height: 50px;
+}
+
+.container-fluid{
+    padding: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.show{
+    background-color: rgba(0, 0, 0, 0.75);
+    div{
+        padding: 0;
+        width: 100%;
+        ul{
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: start;
+            width: 100%;
+            li, #user{
+                height: 10%;
+                width: 100%;
+                button{
+                    width: 100%;
+                    text-align: start;
+                }
+                p{
+                    text-align: start;
+                }
+            }
+        }
+    }
+}
+
+.offcanvas-header{
+    height: 5%;
+    color: white;
+}
+
+.offcanvas-body{
+    height: 50px;
 }
 
 ul{
@@ -37,6 +78,7 @@ ul{
     align-items: center;
     width: 100%;
     justify-content: flex-start;
+    margin: 0;
 }
 
 li{

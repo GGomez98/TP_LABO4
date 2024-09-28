@@ -5,18 +5,18 @@ import { JuegosRoutingModule } from './juegos-routing.module';
 import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 import { MayorOMenorComponent } from './componentes/mayor-o-menor/mayor-o-menor.component';
 import { PreguntasComponent } from './componentes/preguntas/preguntas.component';
-import { BuscaminasComponent } from './componentes/buscaminas/buscaminas.component';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { InvasoresComponent } from './componentes/invasores/invasores.component';
 
 
 @NgModule({
   declarations: [
-    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, BuscaminasComponent, JuegoComponent
+    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, InvasoresComponent, JuegoComponent
   ],
   exports:[
-    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, BuscaminasComponent
+    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, InvasoresComponent
   ],
   imports: [
     CommonModule,

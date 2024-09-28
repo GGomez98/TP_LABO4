@@ -31,8 +31,7 @@ export class AppComponent {
   }
 
   isLoggedOut(): boolean {
-    const currentRoute = this.router.url;
-    return currentRoute === '/login' || currentRoute === '/registro'|| currentRoute === '/';
+    return this.auth.currentUser == null;
   }
 
   logout() {
@@ -48,6 +47,7 @@ export class AppComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.showLoading();
+        this.auth.signOut();
         console.log('Logout successful');
         this.goTo('/login');
       }

@@ -1,5 +1,5 @@
 <app-juego></app-juego>
-<div id="info">
+<div id="info" *ngIf="dataCargada">
     <p id="puntaje">Puntaje: {{puntaje}}</p>
     <p id="cartas">Cartas: {{cartasEnBaraja}}</p>
 </div>

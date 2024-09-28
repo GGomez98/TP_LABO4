@@ -45,7 +45,7 @@ export class AhorcadoComponent {
       confirmButtonText:"Entendido",
       allowOutsideClick: false,
       allowEscapeKey: false
-    });  // Este método se ejecuta cuando el componente se inicializa
+    }); 
   }
 
   InitGame(){
@@ -112,6 +112,13 @@ export class AhorcadoComponent {
       if(this.vidasCount == 0){
         this.palabraOculta = this.palabraSeleccionada;
         this.MostrarImagen();
+        for(let i=0; i<this.teclado.length; i++){
+          let buttonId = this.teclado[i].id;
+          let button = document.getElementById(buttonId);
+          if(button!=null && button.style.display == 'block'){
+            button.style.display = 'none';
+          }
+        }
         setTimeout(() => {
           Swal.fire({
             title: `Perdiste\nPuntuacion Final: ${this.puntos}`,
@@ -133,6 +140,13 @@ export class AhorcadoComponent {
       }
       else{
         this.palabraOculta = this.palabraSeleccionada;
+        for(let i=0; i<this.teclado.length; i++){
+          let buttonId = this.teclado[i].id;
+          let button = document.getElementById(buttonId);
+          if(button!=null && button.style.display == 'block'){
+            button.style.display = 'none';
+          }
+        }
         setTimeout(() => {
           this.palabraOculta = '';
           this.vidasCount = 5;
