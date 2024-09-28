@@ -7,6 +7,17 @@ p{
     margin: 10px;
 }
 
+#info{
+    display: flex;
+    justify-content: space-between;
+    height: 30vh;
+}
+
+#imagen-ahorcado{
+    width: 350px;
+    justify-self: end;
+}
+
 .alphabet-buttons{
     display: flex;
     flex-wrap: wrap;
@@ -40,9 +51,13 @@ p{
 }
 
 #vida{
-    width: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 #barra-vidas{
+    width: 15%;
+    display: flex;
+    justify-content: end;
     padding: 20px;
 }

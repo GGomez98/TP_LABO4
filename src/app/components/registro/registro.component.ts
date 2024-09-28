@@ -46,7 +46,7 @@ export class RegistroComponent extends AppComponent{
         let col = collection(this.firestore, "logins");
         addDoc(col,{fecha: new Date(), "user": this.loggedUser});
       Swal.fire({
-        title: `Se registro correctamente a ${res.user.displayName}\nFecha de registro: ${this.fechaRegistro}`,
+        title: `Se registro correctamente a ${this.newUserName}\nFecha de registro: ${this.fechaRegistro}`,
         background: '#000',
         color: '#fff',
         confirmButtonColor: '#ff5722'
