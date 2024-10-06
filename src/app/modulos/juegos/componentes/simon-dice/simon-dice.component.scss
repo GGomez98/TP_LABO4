@@ -1,0 +1,128 @@
+*{
+    color: white;
+}
+#tablero{
+    display: flex;
+    width: 600px;
+    height: 500px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: rgb(47, 47, 47);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.simon{
+    width: 100px;
+    height: 100px;
+}
+
+.button-up-down{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-left{
+    width: 50%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10%;
+}
+
+.button-right{
+    width: 50%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10%;
+}
+
+.button-1{
+    width: 200px;
+    background-color: rgb(100, 100, 0);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-end-start-radius: 10%;
+    border-end-end-radius: 10%;
+}
+
+.active-yellow{
+    background-color: yellow;
+}
+
+.deactive-yellow:hover{
+    background-color: rgb(150,150,0);
+}
+
+.button-2{
+    height: 100%;
+    background-color: rgb(96, 0, 0);
+    border-start-start-radius: 50%;
+    border-end-start-radius: 50%;
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+}
+
+.active-red{
+    background-color: red;
+}
+
+.deactive-red:hover{
+    background-color: rgb(160,0,0);
+}
+
+.button-3{
+    height: 100%;
+    background-color: rgb(0, 0, 95);
+    border-start-end-radius: 50%;
+    border-end-end-radius: 50%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+}
+
+.active-blue{
+    background-color: blue;
+}
+
+.deactive-blue:hover{
+    background-color: rgb(0, 0, 160);
+}
+
+.button-4{
+    width: 200px;
+    background-color: rgb(0, 78, 0);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-start-start-radius: 10%;
+    border-start-end-radius: 10%;
+}
+
+.active-green{
+    background-color: rgb(0, 186, 0);
+}
+
+.deactive-green:hover{
+    background-color: rgb(0, 160, 0);
+}
+
+@media (max-width: 630px) {
+    #tablero{
+        width: 400px;
+        height: 300px;
+    }
+
+    #button-1, #button-4{
+        width: 100px;
+    }
+
+    .button-right, .button-left{
+        height: 100px;
+    }
+}

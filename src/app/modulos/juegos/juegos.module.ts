@@ -8,15 +8,15 @@ import { PreguntasComponent } from './componentes/preguntas/preguntas.component'
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { InvasoresComponent } from './componentes/invasores/invasores.component';
+import {  SimonDiceComponent } from './componentes/simon-dice/simon-dice.component';
 
 
 @NgModule({
   declarations: [
-    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, InvasoresComponent, JuegoComponent
+    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, SimonDiceComponent, JuegoComponent
   ],
   exports:[
-    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, InvasoresComponent
+    AhorcadoComponent, MayorOMenorComponent, PreguntasComponent, SimonDiceComponent
   ],
   imports: [
     CommonModule,

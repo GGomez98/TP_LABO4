@@ -22,7 +22,7 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
   cartaRecogida:any;
   cartasDescartadas:any[] = [];
   puntaje = 0;
-  cartasEnBaraja = 52;
+  cartasEnBaraja = 0;
 
   constructor(private cartasService: CartasService,private firestore: Firestore, protected auth: Auth) {}
   
@@ -31,6 +31,7 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit():void{
+    this.cartasEnBaraja = 51;
     this.puntaje = 0;
     Swal.fire({
       title: 'Cargando...',
