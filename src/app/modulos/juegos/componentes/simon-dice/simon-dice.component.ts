@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
+import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +14,16 @@ export class SimonDiceComponent {
   secuenciaJugador: Number[] = [];
   puntaje: number = 0;
   timeoutId:any;
+  mensaje: string = '';
+
+  constructor(private firestore: Firestore, protected auth: Auth){}
+
+  ngOnDestroy(){
+    console.log("Se cerro el juego");
+    this.secuenciaComputadora = [];
+    clearTimeout(this.timeoutId);
+    this.timeoutId = null;
+  }
 
   ngOnInit(){
     Swal.fire({
@@ -39,6 +51,7 @@ export class SimonDiceComponent {
     const botones = document.querySelectorAll(".simon");
 
     this.secuenciaJugador = [];
+    this.mensaje = '';
     this.agregarBotonASecuenciaComputadora();
     this.mostrarSecuenciaComputadora().then(()=>{
       botones.forEach(boton =>{
@@ -48,11 +61,14 @@ export class SimonDiceComponent {
       })
       this.timeoutId = setTimeout(() => {
         console.log("SE ACABO EL TIEMPO");
+        this.mensaje = "SE ACABO EL TIEMPO"
         botones.forEach(boton =>{
           if(boton instanceof HTMLButtonElement){
             boton.disabled = true;
           }
         })
+        let col = collection(this.firestore, "simon-dice");
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
         Swal.fire({
           title: `Perdiste\nPuntaje final: ${this.puntaje}`,
           background: '#000',
@@ -154,16 +170,22 @@ export class SimonDiceComponent {
           boton.disabled = true;
         }
         console.log("SECUENCIA CORRECTA");
+        this.mensaje = 'SECUENCIA CORRECTA'
         this.puntaje++;
-        this.jugar();
+        setTimeout(() => {
+          this.jugar();
+        }, 2000);
       }
       else{
         console.log("SECUENCIA INCORRECTA");
         console.log("JUEGO TERMINADO");
+        this.mensaje = 'SECUENCIA INCORRECTA'
         for(let i=0; i<botones.length; i++){
           const boton = botones[i] as HTMLButtonElement
           boton.disabled = true;
         }
+        let col = collection(this.firestore, "simon-dice");
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
         Swal.fire({
           title: `Perdiste\nPuntaje final: ${this.puntaje}`,
           background: '#000',
@@ -185,12 +207,15 @@ export class SimonDiceComponent {
     else{
       this.timeoutId = setTimeout(() => {
         console.log("SE ACABO EL TIEMPO");
+        this.mensaje = 'SE ACABO EL TIEMPO'
         console.log("JUEGO TERMINADO");
         botones.forEach(boton =>{
           if(boton instanceof HTMLButtonElement){
             boton.disabled = true;
           }
         });
+        let col = collection(this.firestore, "simon-dice");
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
         Swal.fire({
           title: `Perdiste\nPuntaje final: ${this.puntaje}`,
           background: '#000',
