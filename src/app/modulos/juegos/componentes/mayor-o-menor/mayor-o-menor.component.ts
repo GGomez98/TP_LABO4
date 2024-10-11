@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import { Auth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mayor-o-menor',
@@ -24,7 +25,7 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
   puntaje = 0;
   cartasEnBaraja = 0;
 
-  constructor(private cartasService: CartasService,private firestore: Firestore, protected auth: Auth) {}
+  constructor(private cartasService: CartasService,private firestore: Firestore, protected auth: Auth, protected router: Router) {}
   
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -143,11 +144,17 @@ console.log(this.puntaje);
             color: '#fff',
             confirmButtonColor: '#ff5722',
             confirmButtonText: 'Reiniciar Juego',
+            cancelButtonText: "Salir",
             allowOutsideClick: false,
-            allowEscapeKey: false 
+            allowEscapeKey: false,
+            cancelButtonColor: "#d33",
+            showCancelButton: true,
           }).then((result)=>{
             if(result.isConfirmed){
               this.ngOnInit();
+            }
+            else{
+              this.router.navigate(['../../home']);
             }
           });
         }

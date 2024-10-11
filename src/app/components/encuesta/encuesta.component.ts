@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-encuesta',
   standalone: true,
-  imports: [],
+  imports: [FormBuilder],
   templateUrl: './encuesta.component.html',
   styleUrl: './encuesta.component.scss'
 })

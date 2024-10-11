@@ -4,6 +4,7 @@ import { PaisesService } from '../../../../servicios/paises.service';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import { Auth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-preguntas',
@@ -22,7 +23,7 @@ export class PreguntasComponent {
   vidasCount = 3;
   elementosOpciones = document.getElementsByClassName('opciones');
 
-  constructor(private clubesService: PaisesService,private firestore: Firestore, protected auth: Auth){}
+  constructor(private clubesService: PaisesService,private firestore: Firestore, protected auth: Auth, protected router: Router){}
 
   ngOnInit():void{
     Swal.fire({
@@ -140,7 +141,12 @@ export class PreguntasComponent {
           background: '#000',
           color: '#fff',
           confirmButtonColor: '#ff5722',
-          confirmButtonText: "Reiniciar Juego"
+          confirmButtonText: "Reiniciar Juego",
+          cancelButtonText: "Salir",
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          cancelButtonColor: "#d33",
+          showCancelButton: true,
           }).then((result) => {
             if (result.isConfirmed) {
               this.vidasCount = 3;
@@ -148,6 +154,9 @@ export class PreguntasComponent {
               this.opciones = [];
               this.elegirPais();
               this.cargarOpciones();
+            }
+            else{
+              this.router.navigate(['../../home']);
             }
           });
       }

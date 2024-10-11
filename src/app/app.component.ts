@@ -43,7 +43,7 @@ export class AppComponent {
       confirmButtonText: "Cerrar Sesión",
       cancelButtonText: "Cancelar",
       background: '#000',
-      color: '#fff', // Evita que se cierre al hacer clic fuera
+      color: '#fff',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.showLoading();

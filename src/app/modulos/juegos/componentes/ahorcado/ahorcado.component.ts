@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,7 +28,7 @@ export class AhorcadoComponent {
   teclado = document.getElementsByClassName('letter');
   ahorcadoImagen = "";
 
-  constructor(private firestore: Firestore, protected auth: Auth) {}
+  constructor(protected router: Router, private firestore: Firestore, protected auth: Auth) {}
 
   ngOnInit(): void {
     this.InitGame();
@@ -127,13 +128,21 @@ export class AhorcadoComponent {
             background: '#000',
             color: '#fff',
             confirmButtonColor: '#ff5722',
-            confirmButtonText: "Reiniciar Juego"
+            confirmButtonText: "Reiniciar Juego",
+            cancelButtonText: "Salir",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            cancelButtonColor: "#d33",
+            showCancelButton: true,
             }).then((result) => {
               if (result.isConfirmed) {
                 // Aquí puedes ejecutar el método o código que desees al hacer clic en "Confirmar"
                 this.vidasCount = 5;
                 this.puntos = 0;
                 this.InitGame();
+              }
+              else{
+                this.router.navigate(['../../home']);
               }
             });
         }, 3000);

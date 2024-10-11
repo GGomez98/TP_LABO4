@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +17,7 @@ export class SimonDiceComponent {
   timeoutId:any;
   mensaje: string = '';
 
-  constructor(private firestore: Firestore, protected auth: Auth){}
+  constructor(private firestore: Firestore, protected auth: Auth, protected router: Router){}
 
   ngOnDestroy(){
     console.log("Se cerro el juego");
@@ -74,15 +75,20 @@ export class SimonDiceComponent {
           background: '#000',
           color: '#fff',
           confirmButtonColor: '#ff5722',
-          confirmButtonText: 'Reiniciar Juego',
+          cancelButtonText: "Salir",
           allowOutsideClick: false,
-          allowEscapeKey: false 
+          allowEscapeKey: false,
+          cancelButtonColor: "#d33",
+          showCancelButton: true,
         }).then((result)=>{
           if(result.isConfirmed){
             this.secuenciaComputadora = [];
             this.secuenciaJugador = [];
             this.puntaje = 0;
             this.jugar();
+          }
+          else{
+            this.router.navigate(['../../home']);
           }
         });
       }, 3000); 
@@ -192,14 +198,20 @@ export class SimonDiceComponent {
           color: '#fff',
           confirmButtonColor: '#ff5722',
           confirmButtonText: 'Reiniciar Juego',
+          cancelButtonText: "Salir",
           allowOutsideClick: false,
-          allowEscapeKey: false 
+          allowEscapeKey: false,
+          cancelButtonColor: "#d33",
+          showCancelButton: true,
         }).then((result)=>{
           if(result.isConfirmed){
             this.secuenciaComputadora = [];
             this.secuenciaJugador = [];
             this.puntaje = 0;
             this.jugar();
+          }
+          else{
+            this.router.navigate(['../../home']);
           }
         });
       }
@@ -222,14 +234,20 @@ export class SimonDiceComponent {
           color: '#fff',
           confirmButtonColor: '#ff5722',
           confirmButtonText: 'Reiniciar Juego',
+          cancelButtonText: "Salir",
           allowOutsideClick: false,
-          allowEscapeKey: false 
+          allowEscapeKey: false,
+          cancelButtonColor: "#d33",
+          showCancelButton: true,
         }).then((result)=>{
           if(result.isConfirmed){
             this.secuenciaComputadora = [];
             this.secuenciaJugador = [];
             this.puntaje = 0;
             this.jugar();
+          }
+          else{
+            this.router.navigate(['../../home']);
           }
         });
       }, 3000); 
