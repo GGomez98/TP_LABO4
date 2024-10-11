@@ -136,7 +136,7 @@ export class MayorOMenorComponent implements OnInit, OnDestroy{
 console.log(this.puntaje);
         if (this.cartasDescartadas.length == 51) {
           let col = collection(this.firestore, "mayor-o-menor");
-          addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
+          addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName, fecha: new Date()});
           Swal.fire({
             title: `Juego Terminado`,
             background: '#000',

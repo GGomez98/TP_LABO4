@@ -65,20 +65,6 @@ export class ChatComponent {
       this.scrollToBottom();
       this.mensajesCargados = true;
     });
-    //const querySnapshot = await getDocs(collection(this.firestore, "mensajes"));
-    //querySnapshot.forEach((doc) => {
-    //  this.mensajes.push(doc.data());
-    //});
-    //this.mensajes = this.mensajes.sort((a,b)=> a['fecha'] - b['fecha']);
-    //this.mensajes.forEach(mensaje => {
-    //  const fecha = mensaje['fecha'].toDate();
-    //  const fechaFormateada = fecha.toLocaleString();
-    //  mensaje['fecha'] = fechaFormateada;
-    //});
-    //console.log(this.mensajes);
-    //this.input.nativeElement.hidden = false;
-    //this.scrollToBottom();
-    //this.mensajesCargados = true
   }
 
   scrollToBottom() {

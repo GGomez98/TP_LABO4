@@ -16,7 +16,7 @@ export class AhorcadoComponent {
     'PAIS', 'MUNDO', 'IDIOMA', 'PALABRA', 'LETRA', 'SONIDO', 'COLOR', 'LINEA', 'CIRCULO', 'CUADRADO',
     'FAMILIA', 'AMIGO', 'AMOR', 'PAZ', 'GUERRA', 'TRABAJO', 'ESCUELA', 'OFICINA', 'PARQUE', 'CALLE',
     'CARRETERA', 'PUENTE', 'MUSEO', 'TEATRO', 'HOSPITAL', 'IGLESIA', 'TEMPLO', 'TIENDA', 'RESTAURANTE', 'CAFETERIA',
-    'ZAPATO', 'CAMISETA', 'PANTALON', 'SOMBRERO', 'RELOJ', 'BOLSA', 'LLAVE', 'TELÉFONO', 'ORDENADOR', 'MESA',
+    'ZAPATO', 'CAMISETA', 'PANTALON', 'SOMBRERO', 'RELOJ', 'BOLSA', 'LLAVE', 'TELEFONO', 'ORDENADOR', 'MESA',
     'SILLA', 'CAMA', 'SOFA', 'VENTANA', 'PUERTA', 'LIBRETA', 'LAPIZ', 'BOLIGRAFO', 'CEPILLO', 'ESPEJO',
     'PEINE', 'JABON', 'TOALLA', 'LAVAVAJILLAS', 'NEVERA', 'LAVADORA', 'COCINA', 'HORNO', 'MICROONDAS', 'TELEVISOR',
     'RADIO', 'CAMARA', 'REPRODUCTOR', 'MOTOR', 'BATERIA', 'CARGADOR', 'CUADERNO', 'GRIFO', 'CORTE', 'PLATO'];
@@ -120,6 +120,8 @@ export class AhorcadoComponent {
           }
         }
         setTimeout(() => {
+          let col = collection(this.firestore, "ahorcado");
+          addDoc(col,{puntaje: this.puntos, "user": this.auth.currentUser?.displayName, fecha: new Date()});
           Swal.fire({
             title: `Perdiste\nPuntuacion Final: ${this.puntos}`,
             background: '#000',
@@ -129,8 +131,6 @@ export class AhorcadoComponent {
             }).then((result) => {
               if (result.isConfirmed) {
                 // Aquí puedes ejecutar el método o código que desees al hacer clic en "Confirmar"
-                let col = collection(this.firestore, "ahorcado");
-                addDoc(col,{puntaje: this.puntos, "user": this.auth.currentUser?.displayName});
                 this.vidasCount = 5;
                 this.puntos = 0;
                 this.InitGame();

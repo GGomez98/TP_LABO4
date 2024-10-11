@@ -1,0 +1,45 @@
+.carousel-item{
+    min-height: 80vh;
+    color: white;
+    font-size: 30px;
+}
+
+.carga{
+    text-align: center;
+}
+
+.juego{
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px;
+    img{
+        width: 50px;
+    }
+}
+
+.jugador{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 10px;
+    font-size: 30px;
+}
+
+.carousel{
+    min-width: 400px;
+    max-width: 800px;
+    min-height: 60vh;
+    max-height: 100vh;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tabla{
+    width: 100%;
+    text-align: center;
+}

@@ -68,7 +68,7 @@ export class SimonDiceComponent {
           }
         })
         let col = collection(this.firestore, "simon-dice");
-        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName, fecha: new Date()});
         Swal.fire({
           title: `Perdiste\nPuntaje final: ${this.puntaje}`,
           background: '#000',
@@ -185,7 +185,7 @@ export class SimonDiceComponent {
           boton.disabled = true;
         }
         let col = collection(this.firestore, "simon-dice");
-        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName, fecha: new Date()});
         Swal.fire({
           title: `Perdiste\nPuntaje final: ${this.puntaje}`,
           background: '#000',
@@ -215,7 +215,7 @@ export class SimonDiceComponent {
           }
         });
         let col = collection(this.firestore, "simon-dice");
-        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName, fecha: new Date()});
         Swal.fire({
           title: `Perdiste\nPuntaje final: ${this.puntaje}`,
           background: '#000',

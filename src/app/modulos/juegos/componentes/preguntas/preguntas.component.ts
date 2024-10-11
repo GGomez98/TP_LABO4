@@ -133,6 +133,8 @@ export class PreguntasComponent {
       }
 
       if(this.vidasCount == 0){
+        let col = collection(this.firestore, "preguntas");
+        addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName, fecha: new Date()});
         Swal.fire({
           title: `Perdiste\nPuntuacion Final: ${this.puntaje}`,
           background: '#000',
@@ -141,8 +143,6 @@ export class PreguntasComponent {
           confirmButtonText: "Reiniciar Juego"
           }).then((result) => {
             if (result.isConfirmed) {
-              let col = collection(this.firestore, "preguntas");
-              addDoc(col,{puntaje: this.puntaje, "user": this.auth.currentUser?.displayName});
               this.vidasCount = 3;
               this.puntaje = 0;
               this.opciones = [];

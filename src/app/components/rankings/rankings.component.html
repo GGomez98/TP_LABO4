@@ -1,0 +1,120 @@
+<div id="carouselExample" class="carousel slide container-fluid">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="juego">
+          <h1 class="juego-titulo">Ahorcado</h1>
+          <img src="https://firebasestorage.googleapis.com/v0/b/tp-labo4-fae81.appspot.com/o/gibbet_3570557.png?alt=media&token=d647779d-4781-464e-a7ea-729d377ef471" class="icon">
+        </div>
+            @if(puntajesCargados[0] == true && puntajesCargados[1] == true && puntajesCargados[2] == true && puntajesCargados[3] == true){
+              <table class="tabla">
+                <thead>
+                  <td>Puesto</td>
+                  <td>Jugador</td>
+                  <td>Puntaje</td>
+                  <td>Fecha</td>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let jugador of jugadoresAhorcado; let i = index">
+                      <td>{{i+1}}</td>
+                      <td>{{jugador.user}}</td>
+                      <td>{{jugador.puntaje}}</td>
+                      <td>{{jugador.fecha}}</td>
+                    </tr>
+                </tbody>
+              </table>
+              }
+              @else{
+                <p class="carga">Cargando Puntajes...</p>
+              }
+      </div>
+      <div class="carousel-item">
+        <div class="juego">
+          <h1 class="juego-titulo">Mayor o Menor</h1>
+          <img src="https://firebasestorage.googleapis.com/v0/b/tp-labo4-fae81.appspot.com/o/poker-card_16830094.png?alt=media&token=a77f8811-f847-4a14-9ecd-50e7677df02f" class="icon">
+        </div>
+            @if(puntajesCargados[0] == true && puntajesCargados[1] == true && puntajesCargados[2] == true && puntajesCargados[3] == true){
+            <table class="tabla">
+              <thead>
+                <td>Puesto</td>
+                <td>Jugador</td>
+                <td>Puntaje</td>
+                <td>Fecha</td>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let jugador of jugadoresMayorMenor; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{jugador.user}}</td>
+                    <td>{{jugador.puntaje}}</td>
+                    <td>{{jugador.fecha}}</td>
+                  </tr>
+              </tbody>
+            </table>
+            }
+            @else{
+              <p>Cargando Puntajes...</p>
+            }
+      </div>
+      <div class="carousel-item">
+        <div class="juego">
+          <h1 class="juego-titulo">Preguntas</h1>
+          <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/tp-labo4-fae81.appspot.com/o/problem_5377707.png?alt=media&token=42d0dad7-74ea-444d-8eeb-8e3c7e7b15a1">
+        </div>
+            @if(puntajesCargados[0] == true && puntajesCargados[1] == true && puntajesCargados[2] == true && puntajesCargados[3] == true){
+              <table class="tabla">
+                <thead>
+                  <td>Puesto</td>
+                  <td>Jugador</td>
+                  <td>Puntaje</td>
+                  <td>Fecha</td>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let jugador of jugadoresPreguntas; let i = index">
+                      <td>{{i+1}}</td>
+                      <td>{{jugador.user}}</td>
+                      <td>{{jugador.puntaje}}</td>
+                      <td>{{jugador.fecha}}</td>
+                    </tr>
+                </tbody>
+              </table>
+              }
+              @else{
+                <p>Cargando Puntajes...</p>
+              }
+      </div>
+      <div class="carousel-item">
+        <div class="juego">
+          <h1 class="juego-titulo">Simon dice</h1>
+          <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/tp-labo4-fae81.appspot.com/o/juego.png?alt=media&token=c3b02c15-e687-43e9-a844-141ea79ea365">
+        </div>
+        @if(puntajesCargados[0] == true && puntajesCargados[1] == true && puntajesCargados[2] == true && puntajesCargados[3] == true){
+          <table class="tabla">
+            <thead>
+              <td>Puesto</td>
+              <td>Jugador</td>
+              <td>Puntaje</td>
+              <td>Fecha</td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jugador of jugadoresSimonDice; let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{jugador.user}}</td>
+                  <td>{{jugador.puntaje}}</td>
+                  <td>{{jugador.fecha}}</td>
+                </tr>
+            </tbody>
+          </table>
+          }
+          @else{
+            <p>Cargando Puntajes...</p>
+          }
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
