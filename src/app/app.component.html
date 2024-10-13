@@ -16,9 +16,10 @@
         } 
         @else{ 
           <ul id="loggedin"> 
-            <li id="user"><p>Bienvenido {{auth.currentUser?.displayName}}</p></li> 
+            <li id="user"><p>Bienvenido {{auth.currentUser?.displayName}}</p></li>
+            <li><button (click) = 'goTo("home")'>Home</button></li>
+            <li><button (click) = 'goTo("encuesta")'>Encuesta</button></li>  
             <li><button (click) = 'goTo("rankings")'>Rankings</button></li>
-            <li><button (click) = 'goTo("home")'>Home</button></li> 
             <li><button (click) = 'goTo("quien-soy")'>Quien soy?</button></li> 
             <li><button class="chat" (click) = 'goTo("chat")'>Chat</button></li> 
             <li><button (click) ='logout()'>Log out</button></li> 
